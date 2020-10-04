@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import useProduct from './Product.js'
+import useProduct from '../Hooks/Product.js'
 
 export default function useProductAPI(){
     let products = [useProduct("ASUS", "VivoBook X512JA-BQ169T", 1264),useProduct("Intel", "i5", 1234),

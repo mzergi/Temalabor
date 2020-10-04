@@ -2,7 +2,7 @@ import React from 'react';
 import '../Hooks/App.css';
 import useProduct from '../Hooks/Product.js'
 import useHeadLine from '../Hooks/HeadLine.js'
-import useProductAPI from '../Hooks/ProductAPI'
+import useProductAPI from './ProductAPI'
 
 export default function ProductPage(){
     return (

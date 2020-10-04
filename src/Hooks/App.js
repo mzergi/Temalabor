@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './App.css';
 import useProduct from './Product.js'
 import useHeadLine from './HeadLine.js'
-import useProductAPI from './ProductAPI'
+import useProductAPI from '../Components/ProductAPI'
 import usePageHandler from './PageHandler'
 import ProductPage from '../Components/ProductPage'
 
