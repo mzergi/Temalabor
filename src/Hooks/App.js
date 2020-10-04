@@ -5,6 +5,7 @@ import useHeadLine from './HeadLine.js'
 import useProductAPI from '../Components/ProductAPI'
 import usePageHandler from './PageHandler'
 import ProductPage from '../Components/ProductPage'
+import useMainPage from './MainPage';
 
 /*export default function App() {
 
@@ -14,10 +15,12 @@ import ProductPage from '../Components/ProductPage'
 }*/
 
 export default function useApp(){
-  let _page = usePageHandler(<ProductPage/>)
-  const [App, setApp] = useState({
-      page: _page
-  })
-  return App.page;
+  const [page, setPage] = useState(0);
+
+  let _page = useMainPage({_setPage: setPage});
+  if(page == 0){
+    setPage(_page);
+  }
+  return page;
 }
 
