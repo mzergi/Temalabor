@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 
 export default function usePageHandler(current_page){
     const[Page, setPage] = useState({
