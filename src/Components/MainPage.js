@@ -1,8 +1,6 @@
-import React, {useState} from 'react';
-import useApp from './App.js';
-import usePageHandler from './PageHandler.js';
-import useHeadLine from './HeadLine.js'
-import ProductPage from '../Components/ProductPage'
+import React from 'react';
+import useHeadLine from '../Hooks/HeadLine.js'
+import ProductPage from './ProductPage'
 
 export default function useMainPage(props){
   const handleClick = () => {
