@@ -1,6 +1,6 @@
 import React from 'react';
 import useHeadLine from '../Hooks/HeadLine.js'
-import useProductAPI from './ProductAPI'
+import ProductAPI from './ProductAPI'
 
 export default function ProductPage(){
     return (
@@ -9,7 +9,7 @@ export default function ProductPage(){
             {useHeadLine("Z's Webshop")}
           </div>
           <div>
-            <ul>{useProductAPI()}</ul>
+            <ul>{ProductAPI()}</ul>
           </div>
         </h>
       );

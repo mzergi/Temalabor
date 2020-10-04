@@ -2,7 +2,7 @@ import React from 'react';
 import useHeadLine from '../Hooks/HeadLine.js'
 import ProductPage from './ProductPage'
 
-export default function useMainPage(props){
+export default function MainPage(props){
   const handleClick = () => {
     props._setPage(<ProductPage/>);
   }
