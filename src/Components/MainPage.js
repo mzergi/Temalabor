@@ -4,7 +4,7 @@ import ProductPage from './ProductPage'
 
 export default function MainPage(props){
   const handleClick = () => {
-    props._setPage(<ProductPage/>);
+    props.setPage(<ProductPage/>);
   }
     return (
         <h>

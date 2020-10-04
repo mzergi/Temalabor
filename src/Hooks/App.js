@@ -6,7 +6,7 @@ import MainPage from '../Components/MainPage';
 export default function useApp(){
   const [page, setPage] = useState(0);
 
-  let _page = MainPage({_setPage: setPage});
+  let _page = MainPage({setPage: setPage});
   if(page === 0){
     setPage(_page);
   }
