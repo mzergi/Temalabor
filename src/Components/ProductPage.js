@@ -2,7 +2,8 @@ import React from 'react';
 import useHeadLine from '../Hooks/HeadLine.js'
 import useProductAPI from './ProductAPI'
 
-export default function ProductPage(){
+export default function ProductPage(props){
+  
     return (
         <h>
           <div>

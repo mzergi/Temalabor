@@ -3,8 +3,9 @@ import useHeadLine from '../Hooks/HeadLine.js'
 import ProductPage from './ProductPage'
 
 export default function MainPage(props){
+  let productpage = ProductPage();
   const handleClick = () => {
-    props.setPage(<ProductPage/>);
+    props.setPage(productpage);
   }
     return (
         <h>
