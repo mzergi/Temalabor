@@ -1,11 +1,11 @@
 import React from 'react';
-import useHeadLine from '../Hooks/HeadLine.js'
-import ProductPage from './ProductPage'
+import useHeadLine from '../Hooks/HeadLine.js';
+import ProductPage from './ProductPage';
+import {PAGES} from '../Hooks/PageHandler';
 
 export default function MainPage(props){
-  let productpage = ProductPage();
   const handleClick = () => {
-    props.setPage(productpage);
+    props.setPage(PAGES.PRODUCT);
   }
     return (
         <h>
