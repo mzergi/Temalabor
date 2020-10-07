@@ -8,5 +8,5 @@ export default function ProductAPI(){
     <li key = {productitem.id}> {productitem} </li>);
 
     return productList;
-    //useProduct nelkul, addItem, getItems, delete stb... fv
+    //useProduct, hookok nelkul, addItem, getItems, delete stb... fv
 }
