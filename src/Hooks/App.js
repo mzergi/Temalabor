@@ -1,8 +1,7 @@
 import React from 'react';
 import './App.css';
-import MainPage from '../Components/MainPage';
-import ProductPage from '../Components/ProductPage';
-import PageHandler from './PageHandler';
+import MainPage from '../Pages/MainPage';
+import ProductPage from '../Pages/ProductPage';
 import {
   BrowserRouter as Router,
   Switch,

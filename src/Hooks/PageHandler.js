@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
-import MainPage from '../Components/MainPage';
-import ProductPage from '../Components/ProductPage';
+import MainPage from '../Pages/MainPage';
+import ProductPage from '../Pages/ProductPage';
 
 export const PAGES = {
     MAIN: 'main',
