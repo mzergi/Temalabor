@@ -9,11 +9,10 @@ export default function useHeadLine(_text){
         style={{
             display: "flex",
             justifyContent: "center",
-            alignItems: "center",
-            backgroundColor: 'rgba(175, 238, 238, 0.4)'
+            alignItems: "center"
         }}
         >
-            <h1>{headLine.text}</h1>
+            <h3>{headLine.text}</h3>
         </div>
     )
 }

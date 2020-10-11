@@ -8,24 +8,24 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import styled from 'styled-components';
 import useHeadLine from './HeadLine';
 
 export default function App(){
+  const PositionedLink = styled(Link) `
+    position: relative;
+    float: ${props => props.left ? "left" : "right"};
+    display: inline-block;
+  `;
   return (
     <header>
-      <div>{useHeadLine("Z's Webshop")}</div>
       <Router>
-        <div>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/products">Products</Link>
-              </li>
-            </ul>
-          </nav>
+        <div
+        style={{
+          backgroundColor: 'rgba(175, 238, 238, 0.4)'
+          }}
+          >
+            <PositionedLink to={"/"} left = {false}>Home</PositionedLink> <PositionedLink to={"/products"} left = {true}>Products</PositionedLink>
           <Switch>
             <Route exact path="/products">
               <ProductPage />
