@@ -21,6 +21,10 @@ export default class ProductAPI{
         addProduct: (product) => {
             this.state.productnumber++;
             this.state.products[this.state.productnumber]=product;
+        },
+
+        fetch: () => {
+            return this.state.products;
         }
 
         }

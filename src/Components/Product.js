@@ -7,7 +7,10 @@ export default class Product extends React.Component{
         this.state = {
             productname: props.productname,
             manufacturer: props.manufacturer,
-            id: props.id
+            id: props.id,
+            getName: () => {
+                return (this.state.productname + this.state.manufacturer)
+            }
         };
 
     }
@@ -17,4 +20,5 @@ export default class Product extends React.Component{
             <h1>{this.state.productname} {this.state.manufacturer}, id: {this.state.id}</h1>
         )
     }
+
 }
