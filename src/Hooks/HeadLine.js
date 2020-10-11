@@ -5,14 +5,14 @@ export default function useHeadLine(_text){
         text: _text
     })
     return(
-        <div
-        style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center"
-        }}
+        <h3
+            style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center"
+            }}            
         >
-            <h3>{headLine.text}</h3>
-        </div>
+        {headLine.text}
+        </h3>
     )
 }

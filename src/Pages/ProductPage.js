@@ -11,7 +11,6 @@ export default function ProductPage(){
     return (
         <h>
           <div>
-            {useHeadLine("Z's Webshop")}
           </div>
           <div>
             <ul>{productList}</ul>

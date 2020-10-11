@@ -18,25 +18,29 @@ export default function App(){
     display: inline-block;
   `;
   return (
-    <header>
+    <h>
       <Router>
         <div
         style={{
+          padding: 0.2,
           backgroundColor: 'rgba(175, 238, 238, 0.4)'
           }}
           >
-            <PositionedLink to={"/"} left = {false}>Home</PositionedLink> <PositionedLink to={"/products"} left = {true}>Products</PositionedLink>
+            <PositionedLink to={"/home"} left = {false}>Home</PositionedLink> <PositionedLink to={"/products"} left = {true}>Products</PositionedLink>
+            {useHeadLine("Z's Webshop")}
+          </div>
+          <div>
           <Switch>
             <Route exact path="/products">
               <ProductPage />
             </Route>
-            <Route exact path="/">
+            <Route exact path="/home">
               <MainPage />
             </Route>
           </Switch>
         </div>
       </Router>
-    </header>
+    </h>
   );
 }
 
