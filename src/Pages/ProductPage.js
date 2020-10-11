@@ -6,9 +6,9 @@ import Cart from '../Components/Cart.js';
 //TODO: atirni routerre hookok helyett
 export default function ProductPage(){
   let mock = new ProductAPI();
-  let products = mock.state.fetch();
-  let productList = products.map((productitem, index) => 
-    <li key = {productitem.id}> {productitem} {AddItemToCart({product: products[index], cart: new Cart()})} </li>);
+  let products = mock.fetch();
+  let productList = products.map((productitem) => 
+    <li key = {productitem.id}> {productitem} {AddItemToCart({product: productitem, cart: new Cart()})} </li>);
   
     return (
         <h>
