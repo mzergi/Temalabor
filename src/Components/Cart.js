@@ -1,13 +1,18 @@
 import React from 'react';
-
-export default class Cart extends React.Component {
-    constructor(props){
-        super (props);
-    }
-    add(product){
-        alert('added');
-    }
-    render(){
-        return null;
+import Product from './Product';
+export default class Cart {
+  state = {
+    products: []
+  };
+  add(product) {
+    this.state.products.push(product);
+  }
+  remove(product) {
+      var array = [...this.state.products];
+      var index = array.indexOf(product);
+      if (index !== -1){
+          array.splice(index, 1);
+          this.state.products = array;
+      }  
     }
 }
