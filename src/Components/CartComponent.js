@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import RemoveItemFromCart from "./RemoveItemFromCart";
 
 export default function CartComponent(props) {
+  //mennyiseg +- gomb
   const [valid, setValid] = useState();
   useEffect(() => {
       setValid(true);

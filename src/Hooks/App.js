@@ -13,6 +13,7 @@ export default function App(props) {
   const PositionedLink = styled(Link)`
     position: relative;
     float: ${(props) => (props.left ? "left" : "right")};
+    padding: 10px;
     display: inline-block;
   `;
   return (
@@ -25,10 +26,10 @@ export default function App(props) {
           }}
         >
           <PositionedLink to={"/home"} left={false}>
-            Home
+            Home 
           </PositionedLink>{" "}
           <PositionedLink to={"/products"} left={true}>
-            Products
+            Products 
           </PositionedLink>
           <PositionedLink to={"/cart"} left={true}>
             Check Cart

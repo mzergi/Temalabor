@@ -7,6 +7,7 @@ import ProductHook from "../Hooks/ProductHook";
 import CartComponent from "../Components/CartComponent";
 
 export default function ProductPage(props) {
+  //kereses textboxxal
   let mock = new ProductAPI();
   let products = mock.fetch();
   const [valid, setValid] = useState(false);
