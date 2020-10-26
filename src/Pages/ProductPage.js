@@ -31,35 +31,34 @@ export default function ProductPage(props) {
       setProducts(res.data);
     });
 
-    if (products!=null) {
+    if (products != null) {
       content.current = (
         <div>
           <ul>
-            {products &&
-              products.map((productitem) => (
-                <div>
-                  <h4>
-                    <li key={productitem.id}>
+            {products.map((productitem) => (
+              <div>
+                <h4>
+                  <li key={productitem.id}>
+                    <Product
+                      productname={productitem.productName}
+                      manufacturer={productitem.manufacturer}
+                      id={productitem.id}
+                    />
+                  </li>
+                  <AddItemToCart
+                    product={
                       <Product
                         productname={productitem.productName}
                         manufacturer={productitem.manufacturer}
                         id={productitem.id}
                       />
-                    </li>
-                    <AddItemToCart
-                      product={
-                        <Product
-                          productname={productitem.productName}
-                          manufacturer={productitem.manufacturer}
-                          id={productitem.id}
-                        />
-                      }
-                      cart={props.cart}
-                      setValid={setValid}
-                    />
-                  </h4>
-                </div>
-              ))}
+                    }
+                    cart={props.cart}
+                    setValid={setValid}
+                  />
+                </h4>
+              </div>
+            ))}
           </ul>
           <CartComponent cart={props.cart} />
         </div>
