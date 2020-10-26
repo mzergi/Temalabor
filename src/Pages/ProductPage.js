@@ -5,6 +5,7 @@ import AddItemToCart from "../Components/AddItemToCart";
 import Cart from "../Components/Cart.js";
 import ProductHook from "../Hooks/ProductHook";
 import CartComponent from "../Components/CartComponent";
+import ProductFetch from "../BackendCommunication/ProductFetch"
 
 export default function ProductPage(props) {
   //kereses textboxxal
