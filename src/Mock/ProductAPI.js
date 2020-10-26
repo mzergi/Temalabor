@@ -20,8 +20,7 @@ export default class ProductAPI {
         <Product productname="i5" manufacturer="Intel" id="5678" />,
         <Product productname="iPhone X" manufacturer="Apple" id="124" />,
         <Product productname="Galaxy A41" manufacturer="Samsung" id="12" />,
-      ],
-      productnumber: 4,
+      ]
     };
   }
 
@@ -30,7 +29,6 @@ export default class ProductAPI {
   }
 
   addProduct(product) {
-    this.state.productnumber++;
-    this.state.products[this.state.productnumber] = product;
+    this.state.products.push(product);
   }
 }
