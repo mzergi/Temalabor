@@ -1,33 +1,72 @@
-import React, {useState, useEffect, View, Text} from "react";
-import useHeadLine from "../Hooks/HeadLine.js";
+import React, { useState, useEffect, View, Text } from "react";
 import ProductAPI from "../Mock/ProductAPI";
 import AddItemToCart from "../Components/AddItemToCart";
-import Cart from "../Components/Cart.js";
-import ProductHook from "../Hooks/ProductHook";
 import CartComponent from "../Components/CartComponent";
-import ProductFetch from "../BackendCommunication/ProductFetch"
+import Product from "../Components/Product";
+import axios from "axios";
+import Spinner from "react-bootstrap/Spinner";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function ProductPage(props) {
   //kereses textboxxal
-  let mock = new ProductAPI();
-  let products = mock.fetch();
+  const url = "https://localhost:5001/api/productitems";
+
+  //let mock = new ProductAPI();
+
+  let content = (
+    <div>
+      <Spinner animation="border" role="status">
+        <span className="sr-only">Loading...</span>
+      </Spinner>
+    </div>
+  );
+
   const [valid, setValid] = useState(false);
   useEffect(() => {
     setValid(true);
   });
-  return (
-    <div>
-      <ul>
-        {products.map((productitem) => (
-          <div>
-            <h4>
-              <li key={productitem.id}> {productitem} </li>
-              <AddItemToCart product={productitem} cart={props.cart} setValid= {setValid}/>
-            </h4>
-          </div>
-        ))}
-      </ul>
-        <CartComponent cart = {props.cart}/>
-    </div>
-  );
+
+  const [products, setProducts] = useState(null);
+  useEffect(() => {
+    axios.get(url).then((res) => {
+      setProducts(res.data);
+    });
+  }, []);
+
+  if (products) {
+    content = (
+      <div>
+        <ul>
+          {products &&
+            products.map((productitem) => (
+              <div>
+                <h4>
+                  <li key={productitem.id}>
+                    <Product
+                      productname={productitem.productName}
+                      manufacturer={productitem.manufacturer}
+                      id={productitem.id}
+                    />
+                  </li>
+                  <AddItemToCart
+                    product={
+                      <Product
+                        productname={productitem.productName}
+                        manufacturer={productitem.manufacturer}
+                        id={productitem.id}
+                      />
+                    }
+                    cart={props.cart}
+                    setValid={setValid}
+                  />
+                </h4>
+              </div>
+            ))}
+        </ul>
+        <CartComponent cart={props.cart} />
+      </div>
+    );
+  }
+
+  return content;
 }

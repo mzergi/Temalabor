@@ -4,6 +4,7 @@ import './index.css';
 import App from './Hooks/App';
 import * as serviceWorker from './serviceWorker';
 import Cart from './Components/Cart';
+import Spinner from 'react-bootstrap/Spinner';
 
 var cart = new Cart();
 ReactDOM.render(
