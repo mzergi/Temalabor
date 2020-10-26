@@ -12,12 +12,9 @@ export default function ProductFetch(props) {
   let content = null;
 
   useEffect(() => {
-      console.log("hi");
-      debugger;
     axios.get(url).then((response) => {
       var tmp = [];
       var i;
-      debugger;
       for (i = 0; i < response.data.length; i++) {
         tmp.push(
           <Product
