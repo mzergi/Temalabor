@@ -65,7 +65,7 @@ export default function ProductPage(props) {
         </div>
       );
     }
-  }, []);
+  }, [products, props.cart]);
 
   return content.current;
 }
