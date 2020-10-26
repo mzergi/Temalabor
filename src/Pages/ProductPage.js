@@ -27,9 +27,9 @@ export default function ProductPage(props) {
 
   const [products, setProducts] = useState(null);
   useEffect(() => {
-    axios.get(url).then((res) => {
+    axios.get(url).then(res => {
       setProducts(res.data);
-    });
+    })
 
     if (products != null) {
       content.current = (
