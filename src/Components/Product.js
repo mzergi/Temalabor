@@ -16,7 +16,7 @@ export default class Product extends React.Component {
   render() {
     return (
       <div>
-        {this.state.productname} {this.state.manufacturer}, id: {this.state.id}
+        {this.state.manufacturer} {this.state.productname}, id: {this.state.id}
       </div>
     );
   }
