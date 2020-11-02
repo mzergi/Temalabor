@@ -17,11 +17,15 @@ export default function ProductPage(props) {
   //let mock = new ProductAPI();
   let content = useRef(
     <div>
-      <Spinner animation="border" role="status" style = {{
-        position: "fixed",
-        top: "50%",
-        left: "50%",
-      }}>
+      <Spinner
+        animation="border"
+        role="status"
+        style={{
+          position: "fixed",
+          top: "50%",
+          left: "50%",
+        }}
+      >
         <span className="sr-only">Loading...</span>
       </Spinner>
     </div>
@@ -47,20 +51,24 @@ export default function ProductPage(props) {
   if (products != null) {
     content.current = (
       <Container fluid>
-          <Col style={{
+        <h5></h5>
+        <h5>Products:</h5>
+        <Row
+          className="justify-conent-md-center"
+          sm="5"
+          style={{
             listStyleType: "none",
-          }}>
-            <h5></h5>
-            <h5>Products:</h5>
-            {products.map((productitem) => (
-              <h5>
-                <li key={productitem.id}>
-                  <Product
-                    productname={productitem.productName}
-                    manufacturer={productitem.manufacturer}
-                    id={productitem.id}
-                  />
-                </li>
+          }}
+        >
+          {products.map((productitem) => (
+            <h5>
+              <Col md={{span: 10, offset: 3}}>
+                <Product
+                  productname={productitem.productName}
+                  manufacturer={productitem.manufacturer}
+                  id={productitem.id}
+                />
+
                 <AddItemToCart
                   product={
                     <Product
@@ -72,9 +80,10 @@ export default function ProductPage(props) {
                   cart={props.cart}
                   setValid={setValid}
                 />
-              </h5>
-            ))}
-          </Col>
+              </Col>
+            </h5>
+          ))}
+        </Row>
         <CartComponent cart={props.cart} />
       </Container>
     );
