@@ -1,0 +1,70 @@
+BEGIN TRY
+
+	BEGIN TRANSACTION
+
+	IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].Products') AND type in (N'U'))
+		drop table Products
+
+	IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].Manufacturers') AND type in (N'U'))
+		drop table Manufacturers
+
+	IF EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].Manufacturer') AND type in (N'U'))
+		drop table Manufacturer
+
+	--*****************************************************************
+	-- Create tables
+	--*****************************************************************
+
+	create table [Manufacturers](
+		ID bigint identity primary key,
+		[Name] nvarchar(50),
+	)
+
+	create table Products(
+		ID bigint identity primary key,
+		ManufacturerID bigint references Manufacturers(ID),
+		[Name] nvarchar(100),
+		Price bigint
+	)
+
+	--*****************************************************************
+	-- Insert sample data
+	--*****************************************************************
+
+	SET IDENTITY_INSERT Manufacturers ON
+	insert into Manufacturers(id, Name) values(1,'ASUS');
+	insert into Manufacturers(id, Name) values(2,'Apple');
+	insert into Manufacturers(id, Name) values(3,'Intel');
+	insert into Manufacturers(id, Name) values(4,'LG');
+	insert into Manufacturers(id, Name) values(5,'Lenovo');
+	SET IDENTITY_INSERT Manufacturers OFF
+
+	SET IDENTITY_INSERT Products ON
+	insert into Products (id, ManufacturerID, Name, Price) values (1,1,'E402YA-GA002TS 14 HD laptop', 104990);
+	insert into Products (id, ManufacturerID, Name, Price) values (2,1,'TUF FX505DT-HN554 15.6 144Hz Gaming laptop', 249990);
+	insert into Products (id, ManufacturerID, Name, Price) values (3,5,'IdeaPad 3 15ADA05 15.6 FullHD laptop', 159990);
+	insert into Products (id, ManufacturerID, Name, Price) values (4,2,'iPhone 11 Mobiltelefon', 229990);
+	insert into Products (id, ManufacturerID, Name, Price) values (5,2,'iPhone 11 Pro Mobiltelefon', 344990);
+	insert into Products (id, ManufacturerID, Name, Price) values (6,3,'Core™ i5-10400F Processzor', 55900);
+	insert into Products (id, ManufacturerID, Name, Price) values (7,4,'K20 Mobiltelefon', 29985);
+	SET IDENTITY_INSERT Products OFF
+
+
+	IF @@TRANCOUNT > 0
+		commit
+
+END TRY
+BEGIN CATCH
+	IF @@Trancount >0
+		rollback
+	IF  CURSOR_STATUS('global','cur') >= -1
+		deallocate cur
+	
+	SELECT 
+        ERROR_NUMBER() AS ErrorNumber,
+        ERROR_SEVERITY() AS ErrorSeverity,
+        ERROR_STATE() as ErrorState,
+        ERROR_PROCEDURE() as ErrorProcedure,
+        ERROR_LINE() as ErrorLine,
+        ERROR_MESSAGE() as ErrorMessage
+END CATCH
