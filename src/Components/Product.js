@@ -1,4 +1,7 @@
 import React from "react";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 export default class Product extends React.Component {
   constructor(props) {
@@ -7,6 +10,7 @@ export default class Product extends React.Component {
     this.state = {
       productname: props.productname,
       manufacturer: props.manufacturer,
+      price: props.price,
       id: props.id,
     };
   }
@@ -16,7 +20,21 @@ export default class Product extends React.Component {
   render() {
     return (
       <div>
-        {this.state.manufacturer} {this.state.productname}, id: {this.state.id}
+        <Row>
+          <Col>
+            {this.state.manufacturer} {this.state.productname}
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            price: {this.state.price}
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            id: {this.state.id}
+          </Col>
+        </Row>
       </div>
     );
   }

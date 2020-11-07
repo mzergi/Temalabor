@@ -34,7 +34,7 @@ export default function ProductPage(props) {
   const [valid, setValid] = useState(false);
   useEffect(() => {
     setValid(true);
-  });
+  }, [valid]);
 
   const [products, setProducts] = useState(null);
 
@@ -55,17 +55,22 @@ export default function ProductPage(props) {
         <h5>Products:</h5>
         <Row
           className="justify-conent-md-center"
-          sm="5"
+          sm="6"
           style={{
             listStyleType: "none",
           }}
         >
           {products.map((productitem) => (
-            <h5>
-              <Col md={{span: 10, offset: 3}}>
+            <h6>
+              <Col md={{span: 10, offset: 3}} style = {{
+                width: "150px",
+                backgroundColor: "rgba(180, 180, 180, 0.4)",
+              }}>
+                <img src={require('../Resources/res/ProductImages/product_'.concat(productitem.id).concat(".png"))} alt = "productImage" width = "120" height="120"></img>
                 <Product
                   productname={productitem.productName}
                   manufacturer={productitem.manufacturer}
+                  price = {productitem.price}
                   id={productitem.id}
                 />
 
@@ -74,6 +79,7 @@ export default function ProductPage(props) {
                     <Product
                       productname={productitem.productName}
                       manufacturer={productitem.manufacturer}
+                      price={productitem.price}
                       id={productitem.id}
                     />
                   }
@@ -81,10 +87,10 @@ export default function ProductPage(props) {
                   setValid={setValid}
                 />
               </Col>
-            </h5>
+            </h6>
           ))}
         </Row>
-        <CartComponent cart={props.cart} />
+        <CartComponent cart={props.cart} setValid={setValid}/>
       </Container>
     );
   }
