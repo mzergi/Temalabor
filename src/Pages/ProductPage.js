@@ -15,6 +15,7 @@ export default function ProductPage(props) {
   const url = "https://localhost:5001/api/productitems";
 
   //let mock = new ProductAPI();
+  //bootstrappel reszponzív felület
   let content = useRef(
     <div>
       <Spinner
