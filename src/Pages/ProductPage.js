@@ -8,6 +8,8 @@ import Spinner from "react-bootstrap/Spinner";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Card from "react-bootstrap/Card";
+import CardGroup from "react-bootstrap/CardGroup";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function ProductPage(props) {
@@ -51,30 +53,22 @@ export default function ProductPage(props) {
 
   if (products != null) {
     content.current = (
-      <Container fluid>
+      <Container fluid className="mb-12">
         <h5></h5>
         <h5>Products:</h5>
-        <Row
-          className="justify-conent-md-center"
-          sm="6"
-          style={{
-            listStyleType: "none",
-          }}
-        >
+        <CardGroup>
           {products.map((productitem) => (
-            <h6>
-              <Col md={{span: 10, offset: 3}} style = {{
-                width: "150px",
-                backgroundColor: "rgba(180, 180, 180, 0.4)",
-              }}>
-                <img src={require('../Resources/res/ProductImages/product_'.concat(productitem.id).concat(".png"))} alt = "productImage" width = "120" height="120"></img>
-                <Product
-                  productname={productitem.productName}
-                  manufacturer={productitem.manufacturer}
-                  price = {productitem.price}
-                  id={productitem.id}
-                />
-
+            <p>
+              <Col xl = "12" lg = "12" md = "12" sm = "2">
+              <Card className = "product-card card-dark">
+                <Card.Img variant="top" src={require('../Resources/res/ProductImages/product_'.concat(productitem.id).concat(".png"))} alt = "productImage" width = "120" height="120"></Card.Img>
+                <Card.Body>
+                  <b>{productitem.manufacturer} {productitem.productName}</b>
+                <Card.Text>
+                  Price: {productitem.price}
+                </Card.Text>
+                </Card.Body>
+                <Card.Footer className = "card-dark">
                 <AddItemToCart
                   product={
                     <Product
@@ -87,14 +81,25 @@ export default function ProductPage(props) {
                   cart={props.cart}
                   setValid={setValid}
                 />
+                </Card.Footer>
+              </Card>
               </Col>
-            </h6>
+            </p>
           ))}
-        </Row>
-        <CartComponent cart={props.cart} setValid={setValid}/>
+        </CardGroup>
+        <CartComponent cart={props.cart} setValid={setValid} class = "p-4"/>
       </Container>
     );
   }
 
   return content.current;
 }
+
+
+/*        <Row
+className="justify-conent-md-center"
+style={{
+  listStyleType: "none",
+  display: "flex",
+}}
+>*/

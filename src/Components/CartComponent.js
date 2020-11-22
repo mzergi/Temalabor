@@ -41,7 +41,7 @@ export default function CartComponent(props) {
                   listStyleType: "none",
                 }}
               >
-                <li key={productitem.props.id}> {productitem}</li>
+                <li key={productitem.props.id}> <p>{productitem.props.manufacturer} {productitem.props.productname}</p></li>
                 <RemoveItemFromCart
                   product={productitem}
                   cart={cart}

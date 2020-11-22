@@ -1,5 +1,7 @@
 .body-dark{
   background-color: #EEE;
+  min-height: 100vh;
+  margin: 0;
 }
 
 .App {
@@ -46,5 +48,18 @@
 }
 
 .text-on-dark-navbar{
-  color: #EEE
+  color: #EEE;
+}
+
+.card-dark{
+  background-color: rgba(180, 180, 180, 0.4);
+}
+
+.smaller {
+  font-size: small;
+}
+
+.product-card {
+  min-height: 20rem;
+  width: 250px;
 }

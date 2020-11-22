@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Button from "react-bootstrap/Button"
 
 export default function RemoveItemFromCart(props) {
   const handleClick = () => {
@@ -7,5 +8,5 @@ export default function RemoveItemFromCart(props) {
     props.setCart(cart);
     props.setValid(false);
   };
-  return <button onClick={() => handleClick()}> Remove Item from Cart </button>;
+  return <Button variant= "danger" onClick={() => handleClick()}> Remove Item from Cart </Button>;
 }
