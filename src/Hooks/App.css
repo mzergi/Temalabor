@@ -1,3 +1,7 @@
+.body-dark{
+  background-color: #EEE;
+}
+
 .App {
   text-align: center;
 }
@@ -35,4 +39,12 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.bg-dark {
+  background-color: #aaaaaa;
+}
+
+.text-on-dark-navbar{
+  color: #EEE
 }

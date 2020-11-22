@@ -8,6 +8,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import styled from "styled-components";
 import useHeadLine from "./HeadLine";
 import CartPage from '../Pages/CartPage';
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Nav, Navbar } from "react-bootstrap";
 
 export default function App(props) {
   const PositionedLink = styled(Link)`
@@ -17,32 +19,40 @@ export default function App(props) {
     display: inline-block;
   `;
   return (
-    <h>
+    <body class = "body-dark">
       <Router>
-        <div
-          style={{
-            padding: 0.2,
-            backgroundColor: "rgba(175, 238, 238, 0.4)",
-          }}
+        <Navbar
+          bg="dark"
+          variant="dark"
         >
-          <PositionedLink to={"/home"} left={false}>
-            Home 
-          </PositionedLink>{" "}
-          <PositionedLink to={"/products"} left={true}>
-            Products 
-          </PositionedLink>
-          <PositionedLink to={"/cart"} left={true}>
-            Check Cart
-          </PositionedLink>
-          {useHeadLine("Z's Webshop")}
-        </div>
+          <Nav className="container-fluid">
+            <Nav.Item>
+              <Link className="nav-link" to="/home">
+                Home
+              </Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Link className="nav-link" to="/products">
+                Products
+              </Link>
+            </Nav.Item>
+            <Nav.Item className = "ml-auto text-on-dark-navbar">
+              <h5>Z's Webshop</h5>
+            </Nav.Item>
+            <Nav.Item className = "ml-auto">
+              <Link className="nav-link" to={"/cart"}>
+                Check Cart
+              </Link>
+            </Nav.Item>
+          </Nav>
+        </Navbar>
         <div>
           <Switch>
             <Route exact path="/products">
-              <ProductPage cart = {props.cart} />
+              <ProductPage cart={props.cart} />
             </Route>
             <Route exact path="/cart">
-              <CartPage cart = {props.cart} />
+              <CartPage cart={props.cart} />
             </Route>
             <Route exact path="/home">
               <MainPage />
@@ -50,6 +60,6 @@ export default function App(props) {
           </Switch>
         </div>
       </Router>
-    </h>
+    </body>
   );
 }
