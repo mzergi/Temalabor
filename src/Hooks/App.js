@@ -9,7 +9,8 @@ import styled from "styled-components";
 import useHeadLine from "./HeadLine";
 import CartPage from '../Pages/CartPage';
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Nav, Navbar } from "react-bootstrap";
+import { Nav, Navbar, Button} from "react-bootstrap";
+import { FaShoppingCart } from 'react-icons/fa'
 
 export default function App(props) {
   const PositionedLink = styled(Link)`
@@ -40,8 +41,10 @@ export default function App(props) {
               <h5>Z's Webshop</h5>
             </Nav.Item>
             <Nav.Item className = "ml-auto">
-              <Link className="nav-link" to={"/cart"}>
-                Check Cart
+              <Link to={"/cart"}>
+                <Button variant = "primary">
+                    <FaShoppingCart/>
+                </Button>
               </Link>
             </Nav.Item>
           </Nav>
