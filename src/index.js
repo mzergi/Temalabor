@@ -7,6 +7,7 @@ import Cart from './Components/Cart';
 import Spinner from 'react-bootstrap/Spinner';
 
 var cart = new Cart();
+cart.state.firstload = true;
 ReactDOM.render(
   <React.StrictMode>
     <App cart = {cart} />

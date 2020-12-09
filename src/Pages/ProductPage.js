@@ -16,8 +16,9 @@ export default function ProductPage(props) {
   //TODO: kereses textboxxal
   const url = "https://localhost:5001/api/productitems";
 
+  props.setItems(props.cart.state.numberofitems);
+
   //let mock = new ProductAPI();
-  //bootstrappel reszponzív felület
   let content = useRef(
     <div>
       <Spinner
@@ -59,9 +60,9 @@ export default function ProductPage(props) {
         <CardGroup>
           {products.map((productitem) => (
             <p>
-              <Col xl = "12" lg = "12" md = "12" sm = "2">
+              <Col>
               <Card className = "product-card card-dark">
-                <Card.Img variant="top" src={require('../Resources/res/ProductImages/product_'.concat(productitem.id).concat(".png"))} alt = "productImage" width = "120" height="120"></Card.Img>
+                <Card.Img variant="top" src={require('../Resources/res/ProductImages/product_'.concat(productitem.id).concat(".png"))} alt = "productImage" width = "auto" height="200"></Card.Img>
                 <Card.Body>
                   <b>{productitem.manufacturer} {productitem.productName}</b>
                 <Card.Text>
@@ -70,16 +71,11 @@ export default function ProductPage(props) {
                 </Card.Body>
                 <Card.Footer className = "card-dark">
                 <AddItemToCart
-                  product={
-                    <Product
-                      productname={productitem.productName}
-                      manufacturer={productitem.manufacturer}
-                      price={productitem.price}
-                      id={productitem.id}
-                    />
-                  }
+                  product= {productitem}
                   cart={props.cart}
                   setValid={setValid}
+                  text = {"Add Item to Cart"}
+                  setItems={props.setItems}
                 />
                 </Card.Footer>
               </Card>
@@ -87,7 +83,6 @@ export default function ProductPage(props) {
             </p>
           ))}
         </CardGroup>
-        <CartComponent cart={props.cart} setValid={setValid} class = "p-4"/>
       </Container>
     );
   }
@@ -95,11 +90,6 @@ export default function ProductPage(props) {
   return content.current;
 }
 
-
-/*        <Row
-className="justify-conent-md-center"
-style={{
-  listStyleType: "none",
-  display: "flex",
-}}
->*/
+/*
+        <CartComponent cart={props.cart} setValid={setValid} class = "p-4"/>
+*/

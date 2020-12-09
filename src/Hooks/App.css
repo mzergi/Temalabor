@@ -60,6 +60,13 @@
 }
 
 .product-card {
-  min-height: 20rem;
+  min-height: 400px;
   width: 250px;
+}
+
+.cart-card {
+  min-height: 200px;
+  width: 200px;
+  font-size: medium;
+  margin-left: 2rem;
 }

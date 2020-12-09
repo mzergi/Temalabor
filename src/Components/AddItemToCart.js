@@ -6,6 +6,7 @@ export default function AddItemToCart(props) {
   const handleClick = () => {
     props.cart.add(props.product);
     props.setValid(false);
+    props.setItems(props.cart.state.numberofitems);
   };
-  return <Button variant="primary" onClick={() => handleClick()}> Add Item To Cart </Button>;
+  return <Button variant="primary" className = "ml-4" onClick={() => handleClick()}> {props.text} </Button>;
 }
