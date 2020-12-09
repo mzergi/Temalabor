@@ -27,7 +27,6 @@ export default class Cart {
     else {
       productarray.push(product);
       piecesarray.push({product: product, pieces: 1});
-      let _cartitem = {product: product, pieces: 1};
       const res = await axios.post(url, {id: 1, productid: product.id, pieces: 1});
     }
     this.state.products = productarray;
