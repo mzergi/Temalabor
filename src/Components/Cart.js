@@ -35,9 +35,6 @@ export default class Cart {
   addToNumberOfItems(amount){
     this.state.numberofitems+=amount;
   }
-  removeFromNumberOfItems(amount){
-    this.state.numberofitems-=amount;
-  }
   async remove(product) {
     var array = [...this.state.products];
     var piecesarray = [...this.state.cartpieces];
@@ -45,7 +42,7 @@ export default class Cart {
     console.log(index);
     if (index !== -1) {
       let removethismany = piecesarray[index].pieces
-      this.removeFromNumberOfItems(removethismany);
+      this.addToNumberOfItems(-removethismany);
       array.splice(index, 1);
       piecesarray.splice(index, 1);
       this.state.products = array;
@@ -68,7 +65,7 @@ export default class Cart {
         this.remove(product);
       }
       else {
-        this.removeFromNumberOfItems(1);
+        this.addToNumberOfItems(-1);
         piecesarray[index].pieces -= 1;
         this.state.products = productarray;
         this.state.cartpieces = piecesarray;
